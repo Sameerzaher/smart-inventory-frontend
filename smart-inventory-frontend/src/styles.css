@@ -1,0 +1,122 @@
+/* 🌟 General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* 🌟 Sidebar */
+  .sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #2d3748;
+    color: white;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .sidebar h2 {
+    text-align: center;
+    font-size: 1.5rem;
+  }
+  
+  .sidebar a {
+    display: block;
+    padding: 10px;
+    margin: 5px 0;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .sidebar a:hover {
+    background-color: #4a5568;
+  }
+  
+  /* 🌟 Logout Button */
+  .logout-btn {
+    background-color: #e53e3e;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .logout-btn:hover {
+    background-color: #c53030;
+  }
+  
+  /* 🌟 Navbar */
+  .navbar {
+    height: 60px;
+    background-color: white;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    position: fixed;
+    left: 250px;
+    right: 0;
+    top: 0;
+    z-index: 10;
+  }
+  
+  /* 🌟 Main Content */
+  .main-content {
+    margin-left: 250px;
+    padding: 80px 20px;
+  }
+  
+  /* 🌟 Dashboard Centering */
+  .dashboard-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+  }
+  
+  /* 🌟 Dashboard Cards */
+  .dashboard-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* 🌟 Responsive Design */
+  @media (max-width: 1024px) {
+    .sidebar {
+      width: 200px;
+    }
+    .navbar {
+      left: 200px;
+    }
+    .main-content {
+      margin-left: 200px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .sidebar {
+      position: absolute;
+      width: 100%;
+      height: auto;
+    }
+    .navbar {
+      left: 0;
+    }
+    .main-content {
+      margin-left: 0;
+      padding: 60px 20px;
+    }
+  }
+  
