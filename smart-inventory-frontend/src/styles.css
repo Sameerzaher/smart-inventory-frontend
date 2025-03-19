@@ -57,6 +57,8 @@
     text-align: center;
     border-radius: 5px;
     cursor: pointer;
+    font-weight: bold;
+    border: none;
   }
   
   .logout-btn:hover {
@@ -79,6 +81,29 @@
     z-index: 10;
   }
   
+  .navbar-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2d3748;
+  }
+  
+  .navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    color: #4a5568;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  
+  .nav-link:hover {
+    color: #3182ce;
+  }
+  
   /* 🌟 Main Content */
   .main-content {
     margin-left: 250px;
@@ -89,24 +114,72 @@
     align-items: center;
   }
   
-  /* 🌟 Dashboard Centering */
+  /* 🌟 Dashboard Layout */
   .dashboard-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    min-height: 80vh;
+    height: 100vh;
+    background: #f8f9fa;
   }
   
   /* 🌟 Dashboard Cards */
   .dashboard-card {
     background: white;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
     text-align: center;
+  }
+  
+  .dashboard-card h2 {
+    font-size: 18px;
+    color: #2d3748;
+    font-weight: bold;
+  }
+  
+  .dashboard-card p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4a90e2;
+  }
+  
+  /* 🌟 Products Table */
+  .products-list-container {
+    margin-top: 20px;
+  }
+  
+  .products-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  .products-table {
     width: 100%;
-    max-width: 600px;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .products-table thead {
+    background: #4a90e2;
+    color: white;
+    font-size: 16px;
+  }
+  
+  .products-table th,
+  .products-table td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .products-table tbody tr:hover {
+    background: #f1f1f1;
   }
   
   /* 🌟 Responsive Design */
@@ -136,8 +209,9 @@
       padding: 60px 20px;
     }
   }
+  
   /* 🌟 Login Page Styling */
-.login-container {
+  .login-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -208,83 +282,112 @@
       padding: 30px;
     }
   }
-/* 🌟 Navbar Styling */
-.navbar {
-    height: 60px;
-    background-color: white;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-    position: fixed;
-    left: 250px;
-    right: 0;
-    top: 0;
-    z-index: 10;
+  /* 🌟 Products Page Styling */
+.products-container {
+    padding: 20px;
+    max-width: 90%;
+    margin: auto;
+    background: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
   
-  .navbar-logo {
-    font-size: 1.5rem;
+  .page-title {
+    font-size: 28px;
     font-weight: bold;
     color: #2d3748;
+    text-align: center;
+    margin-bottom: 20px;
   }
   
-  .navbar-links {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+  .loading-text {
+    text-align: center;
+    font-size: 18px;
+    color: #555;
   }
   
-  .nav-link {
-    text-decoration: none;
-    color: #4a5568;
-    font-weight: 500;
-    transition: color 0.3s;
-  }
-  
-  .nav-link:hover {
-    color: #3182ce;
-  }
-  
-  /* 🌟 Logout Button */
-  .logout-btn {
-    background-color: #e53e3e;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
+  .error-text {
+    text-align: center;
+    font-size: 18px;
+    color: red;
     font-weight: bold;
-    transition: background-color 0.3s;
   }
   
-  .logout-btn:hover {
-    background-color: #c53030;
+  /* 🌟 Table Styling */
+  .table-container {
+    overflow-x: auto;
   }
   
-  /* 🌟 Responsive Navbar */
-  @media (max-width: 1024px) {
-    .navbar {
-      left: 200px;
-    }
+  .products-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
   }
   
+  .products-table thead {
+    background: #4a90e2;
+    color: white;
+    font-size: 16px;
+  }
+  
+  .products-table th, .products-table td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .products-table tbody tr {
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .products-table tbody tr:hover {
+    background: #f1f1f1;
+  }
+  
+  /* 🌟 Button Styling */
+  .edit-btn, .delete-btn {
+    padding: 8px 12px;
+    margin: 3px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: background 0.3s;
+  }
+  
+  .edit-btn {
+    background: #ffc107;
+    color: black;
+    border: none;
+  }
+  
+  .edit-btn:hover {
+    background: #e0a800;
+  }
+  
+  .delete-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+  }
+  
+  .delete-btn:hover {
+    background: #c82333;
+  }
+  
+  /* 🌟 Responsive Design */
   @media (max-width: 768px) {
-    .navbar {
-      left: 0;
-      flex-direction: column;
+    .products-container {
+      max-width: 100%;
+      padding: 15px;
+    }
+    .products-table th, .products-table td {
       padding: 10px;
     }
-  
-    .navbar-links {
-      flex-direction: column;
-      gap: 10px;
-      padding-top: 5px;
-    }
-  
-    .logout-btn {
-      width: 100%;
-    }
   }
-    
+  

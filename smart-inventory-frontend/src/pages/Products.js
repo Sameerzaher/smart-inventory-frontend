@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { FaEdit, FaTrash } from "react-icons/fa";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -6,58 +7,63 @@ const Products = () => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/products")
-      .then((response) => response.json())
+    fetch("http://localhost:5000/api/products", {
+      headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    })
+      .then((res) => res.json())
       .then((data) => {
-        if (Array.isArray(data)) {
-          setProducts(data);
-        } else {
-          console.error("Unexpected API response:", data);
-          setProducts([]); // Ensure it's always an array
-        }
+        setProducts(data);
         setLoading(false);
       })
-      .catch((error) => {
-        console.error("Error fetching products:", error);
+      .catch(() => {
         setError("Failed to fetch products.");
         setLoading(false);
       });
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <h1 className="text-4xl font-extrabold text-gray-800 mb-6">📦 Products</h1>
+    <div className="products-container">
+      <h1 className="page-title">📦 Products</h1>
 
-      <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-4xl">
-        {loading ? (
-          <p className="text-center text-gray-600">Loading products...</p>
-        ) : error ? (
-          <p className="text-center text-red-500">{error}</p>
-        ) : products.length > 0 ? (
-          <table className="w-full border-collapse">
+      {loading ? (
+        <p className="loading-text">Loading products...</p>
+      ) : error ? (
+        <p className="error-text">{error}</p>
+      ) : (
+        <div className="table-container">
+          <table className="products-table">
             <thead>
-              <tr className="bg-blue-700 text-white">
-                <th className="p-3">Name</th>
-                <th className="p-3">SKU</th>
-                <th className="p-3">Stock</th>
-                <th className="p-3">Price</th>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>SKU</th>
+                <th>Stock</th>
+                <th>Price</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
               {products.map((product) => (
-                <tr key={product.id} className="border-b text-center">
-                  <td className="p-3">{product.name}</td>
-                  <td className="p-3">{product.sku}</td>
-                  <td className="p-3">{product.stock_quantity}</td>
-                  <td className="p-3 text-green-600 font-bold">${product.selling_price}</td>
+                <tr key={product.id}>
+                  <td>{product.id}</td>
+                  <td>{product.name}</td>
+                  <td>{product.sku}</td>
+                  <td>{product.stock_quantity}</td>
+                  <td>${product.selling_price}</td>
+                  <td>
+                    <button className="edit-btn">
+                      <FaEdit /> Edit
+                    </button>
+                    <button className="delete-btn">
+                      <FaTrash /> Delete
+                    </button>
+                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
-        ) : (
-          <p className="text-center text-gray-600">No products available.</p>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 };
