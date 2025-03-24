@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import DashboardLayout from "./components/DashboardLayout";
-import Dashboard from "./pages/Dashboard";
-import Products from "./pages/Products";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import Products from "./pages/Products/Products";
 import Inventory from "./pages/Inventory";
 import Sales from "./pages/Sales";
-import Login from "./pages/Login";
+import Login from "./pages/Login/Login";
 
 function App() {
   return (

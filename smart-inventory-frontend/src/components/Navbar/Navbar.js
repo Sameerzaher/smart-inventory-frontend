@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-
+import { logout } from "../../utils/auth";
+import "./Navbar.css";
 const Navbar = () => {
   return (
     <nav className="navbar">
@@ -9,7 +10,9 @@ const Navbar = () => {
         <Link to="/products" className="nav-link">Products</Link>
         <Link to="/inventory" className="nav-link">Inventory</Link>
         <Link to="/sales" className="nav-link">Sales</Link>
-        <button className="logout-btn">Logout</button>
+         <div className="logout-btn" onClick={logout}>
+               Logout
+             </div>
       </div>
     </nav>
   );

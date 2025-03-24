@@ -1,0 +1,102 @@
+/* ---------- Sidebar ---------- */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #2d3748;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+  }
+  
+  .sidebar h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+  }
+  
+  .sidebar a {
+    color: white;
+    padding: 10px;
+    margin: 5px 0;
+    text-decoration: none;
+    border-radius: 5px;
+    display: block;
+  }
+  
+  .sidebar a:hover {
+    background-color: #4a5568;
+  }
+  
+  /* ---------- Logout Button ---------- */
+  .logout-btn {
+    background-color: #e53e3e;
+    color: white;
+    padding: 10px;
+    border: none;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: auto;
+  }
+  
+  .logout-btn:hover {
+    background-color: #c53030;
+  }
+  
+  /* ---------- Sidebar Toggle (Mobile) ---------- */
+  .sidebar-toggle {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1100;
+    background-color: #2d3748;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+  }
+  
+  /* ---------- Responsive Behavior ---------- */
+  @media (max-width: 768px) {
+    .sidebar {
+      transform: translateX(-100%);
+    }
+  
+    .sidebar.active {
+      transform: translateX(0);
+    }
+  
+    .sidebar-toggle {
+      display: block;
+    }
+  
+    .main-content {
+      margin-left: 0 !important;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+  
+  /* ---------- Main Content Padding ---------- */
+  .main-content {
+    margin-left: 250px;
+    padding: 80px 20px;
+    transition: margin-left 0.3s;
+  }
+  
+  @media (max-width: 768px) {
+    .main-content {
+      margin-left: 0;
+    }
+  }
+  

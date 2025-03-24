@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
-
+import "./Products.css";
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -12,10 +12,16 @@ const Products = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        setProducts(data);
+        if (Array.isArray(data)) {
+          setProducts(data);
+        } else {
+          console.error("Unexpected API response:", data);
+          setProducts([]);
+        }
         setLoading(false);
       })
-      .catch(() => {
+      .catch((err) => {
+        console.error("Fetch error:", err);
         setError("Failed to fetch products.");
         setLoading(false);
       });
@@ -43,23 +49,29 @@ const Products = () => {
               </tr>
             </thead>
             <tbody>
-              {products.map((product) => (
-                <tr key={product.id}>
-                  <td>{product.id}</td>
-                  <td>{product.name}</td>
-                  <td>{product.sku}</td>
-                  <td>{product.stock_quantity}</td>
-                  <td>${product.selling_price}</td>
-                  <td>
-                    <button className="edit-btn">
-                      <FaEdit /> Edit
-                    </button>
-                    <button className="delete-btn">
-                      <FaTrash /> Delete
-                    </button>
-                  </td>
+              {products.length > 0 ? (
+                products.map((product) => (
+                  <tr key={product.id}>
+                    <td>{product.id}</td>
+                    <td>{product.name}</td>
+                    <td>{product.sku}</td>
+                    <td>{product.stock_quantity}</td>
+                    <td>${product.selling_price}</td>
+                    <td>
+                      <button className="edit-btn">
+                        <FaEdit /> Edit
+                      </button>
+                      <button className="delete-btn">
+                        <FaTrash /> Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="6" className="no-products">No products found</td>
                 </tr>
-              ))}
+              )}
             </tbody>
           </table>
         </div>

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { logout } from "../utils/auth";
 
+import "./Sidebar.css";
 const Sidebar = () => {
   return (
     <div className="sidebar">
@@ -12,10 +12,7 @@ const Sidebar = () => {
         <Link to="/sales">Sales</Link>
       </nav>
 
-      {/* Logout Button */}
-      <div className="logout-btn" onClick={logout}>
-        Logout
-      </div>
+    
     </div>
   );
 };

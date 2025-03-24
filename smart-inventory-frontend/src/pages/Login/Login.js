@@ -1,32 +1,34 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import "./Login.css";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
-
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5000/api/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
+        const response = await fetch("http://localhost:5000/api/auth/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, password }),
+        });
 
-      const data = await response.json();
-      if (response.ok) {
-        localStorage.setItem("token", data.token);
-        navigate("/"); // Redirect to Dashboard
-      } else {
-        setError(data.message);
-      }
+        const data = await response.json();
+        console.log("Login Response:", data); // 🔍 Debugging
+
+        if (response.ok) {
+            localStorage.setItem("token", data.token);
+            localStorage.setItem("user", JSON.stringify(data.user)); // Save user info
+            navigate("/"); // Redirect to Dashboard
+        } else {
+            setError(data.message);
+        }
     } catch (error) {
-      setError("Login failed. Please try again.");
+        setError("Login failed. Please try again.");
     }
-  };
+};
 
   return (
     <div className="login-container">

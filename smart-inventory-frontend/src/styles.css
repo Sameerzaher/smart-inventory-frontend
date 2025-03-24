@@ -1,354 +1,4 @@
-/* 🌟 General Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
-  }
-  
-  /* 🌟 Layout Styling */
-  .container {
-    display: flex;
-    height: 100vh;
-  }
-  
-  /* 🌟 Sidebar */
-  .sidebar {
-    width: 250px;
-    height: 100vh;
-    background-color: #2d3748;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 20px;
-    position: fixed;
-    left: 0;
-    top: 0;
-  }
-  
-  .sidebar h2 {
-    text-align: center;
-    font-size: 1.5rem;
-  }
-  
-  .sidebar a {
-    display: block;
-    padding: 10px;
-    margin: 5px 0;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-  }
-  
-  .sidebar a:hover {
-    background-color: #4a5568;
-  }
-  
-  /* 🌟 Logout Button */
-  .logout-btn {
-    background-color: #e53e3e;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    border: none;
-  }
-  
-  .logout-btn:hover {
-    background-color: #c53030;
-  }
-  
-  /* 🌟 Navbar */
-  .navbar {
-    height: 60px;
-    background-color: white;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-    position: fixed;
-    left: 250px;
-    right: 0;
-    top: 0;
-    z-index: 10;
-  }
-  
-  .navbar-logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #2d3748;
-  }
-  
-  .navbar-links {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-  }
-  
-  .nav-link {
-    text-decoration: none;
-    color: #4a5568;
-    font-weight: 500;
-    transition: color 0.3s;
-  }
-  
-  .nav-link:hover {
-    color: #3182ce;
-  }
-  
-  /* 🌟 Main Content */
-  .main-content {
-    margin-left: 250px;
-    padding: 80px 20px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  /* 🌟 Dashboard Layout */
-  .dashboard-container {
-    display: flex;
-    height: 100vh;
-    background: #f8f9fa;
-  }
-  
-  /* 🌟 Dashboard Cards */
-  .dashboard-card {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  .dashboard-card h2 {
-    font-size: 18px;
-    color: #2d3748;
-    font-weight: bold;
-  }
-  
-  .dashboard-card p {
-    font-size: 24px;
-    font-weight: bold;
-    color: #4a90e2;
-  }
-  
-  /* 🌟 Products Table */
-  .products-list-container {
-    margin-top: 20px;
-  }
-  
-  .products-title {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    text-align: center;
-    margin-bottom: 15px;
-  }
-  
-  .products-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .products-table thead {
-    background: #4a90e2;
-    color: white;
-    font-size: 16px;
-  }
-  
-  .products-table th,
-  .products-table td {
-    padding: 12px 15px;
-    text-align: center;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .products-table tbody tr:hover {
-    background: #f1f1f1;
-  }
-  
-  /* 🌟 Responsive Design */
-  @media (max-width: 1024px) {
-    .sidebar {
-      width: 200px;
-    }
-    .navbar {
-      left: 200px;
-    }
-    .main-content {
-      margin-left: 200px;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .sidebar {
-      width: 100%;
-      height: auto;
-      position: absolute;
-    }
-    .navbar {
-      left: 0;
-    }
-    .main-content {
-      margin-left: 0;
-      padding: 60px 20px;
-    }
-  }
-  
-  /* 🌟 Login Page Styling */
-  .login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(to right, #4A90E2, #9013FE);
-  }
-  
-  .login-box {
-    background: white;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    width: 100%;
-    max-width: 400px;
-  }
-  
-  .login-title {
-    font-size: 24px;
-    font-weight: bold;
-    color: #2d3748;
-    margin-bottom: 20px;
-  }
-  
-  .input-group {
-    margin-bottom: 15px;
-  }
-  
-  .input-group input {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .input-group input:focus {
-    border-color: #4A90E2;
-    outline: none;
-  }
-  
-  .login-btn {
-    width: 100%;
-    background-color: #4A90E2;
-    color: white;
-    padding: 12px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-  
-  .login-btn:hover {
-    background-color: #357ABD;
-  }
-  
-  .login-error {
-    color: red;
-    font-size: 14px;
-    margin-bottom: 10px;
-  }
-  
-  /* 🌟 Responsive Login */
-  @media (max-width: 768px) {
-    .login-box {
-      padding: 30px;
-    }
-  }
-  /* 🌟 Products Page Styling */
-.products-container {
-    padding: 20px;
-    max-width: 90%;
-    margin: auto;
-    background: #f8f9fa;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .page-title {
-    font-size: 28px;
-    font-weight: bold;
-    color: #2d3748;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .loading-text {
-    text-align: center;
-    font-size: 18px;
-    color: #555;
-  }
-  
-  .error-text {
-    text-align: center;
-    font-size: 18px;
-    color: red;
-    font-weight: bold;
-  }
-  
-  /* 🌟 Table Styling */
-  .table-container {
-    overflow-x: auto;
-  }
-  
-  .products-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .products-table thead {
-    background: #4a90e2;
-    color: white;
-    font-size: 16px;
-  }
-  
-  .products-table th, .products-table td {
-    padding: 12px 15px;
-    text-align: center;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .products-table tbody tr {
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .products-table tbody tr:hover {
-    background: #f1f1f1;
-  }
-  
-  /* 🌟 Button Styling */
-  .edit-btn, .delete-btn {
+.edit-btn, .delete-btn {
     padding: 8px 12px;
     margin: 3px;
     font-size: 14px;
@@ -380,8 +30,32 @@
     background: #c82333;
   }
   
-  /* 🌟 Responsive Design */
+  /* ---------------------- Responsive ---------------------- */
+  @media (max-width: 1024px) {
+    .sidebar {
+      width: 200px;
+    }
+    .navbar {
+      left: 200px;
+    }
+    .main-content {
+      margin-left: 200px;
+    }
+  }
+  
   @media (max-width: 768px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: absolute;
+    }
+    .navbar {
+      left: 0;
+    }
+    .main-content {
+      margin-left: 0;
+      padding: 60px 20px;
+    }
     .products-container {
       max-width: 100%;
       padding: 15px;
@@ -390,4 +64,12 @@
       padding: 10px;
     }
   }
-  
+  .main-content {
+    margin-left: 250px;
+    padding: 80px 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+    
